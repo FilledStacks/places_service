@@ -1,6 +1,6 @@
 name: places_service
-description: A new Flutter package project.
-version: 0.0.1
+description: A service that makes it easy to get information from the Places Api
+version: 0.1.0
 author: FilledStacks
 homepage: https://filledstacks.com
 
@@ -17,7 +17,6 @@ dependencies:
   json_annotation: ^4.0.1
 
   geolocator: ^7.0.3
-  easy_debounce: ^2.0.0
   google_maps_webservice: ^0.0.20-nullsafety.4
   uuid: ^3.0.4
   tuple: ^2.0.0
@@ -27,7 +26,6 @@ dev_dependencies:
     sdk: flutter
 
   build_runner:
-  stacked_generator: ^0.4.1
 
   # data models
   freezed: ^0.14.1+2
