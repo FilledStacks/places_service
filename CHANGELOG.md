@@ -1,3 +1,7 @@
+## 0.1.0+3
+
+- Added custom `PlacesApiException`
+
 ## 0.1.0+2
 
 - Improves readme a little bit to guide some more
