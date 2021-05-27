@@ -106,8 +106,9 @@ class PlacesService {
         Tuple2(LocationAccuracy.high, 3)
       ]) {
         currentPosition = await Geolocator.getCurrentPosition(
-            desiredAccuracy: trial.item1,
-            timeLimit: Duration(seconds: trial.item2));
+          desiredAccuracy: trial.item1,
+          timeLimit: Duration(seconds: trial.item2),
+        );
       }
     } catch (e) {
       return;
@@ -124,8 +125,7 @@ class PlacesService {
       longitude: currentPosition.longitude,
     );
 
-    return _runPlacesRequest<List<PlacesLocation>,
-        PlacesSearchResponse>(
+    return _runPlacesRequest<List<PlacesLocation>, PlacesSearchResponse>(
       placesRequest: _places!.searchNearbyWithRadius(
         Location(
           lat: _currentPosition.latitude!,
@@ -156,17 +156,15 @@ class PlacesService {
       if (result.isOkay) {
         return serialiseResponse(result);
       } else {
-        throw Exception(warningMessageForNotOkayResult);
+        throw PlacesApiException(message: warningMessageForNotOkayResult);
       }
-    } catch (e) {
-      var errorMessage =
-          'A problem occurred making the places request. $e';
-      throw Exception(errorMessage);
+    } catch (exception) {
+      var errorMessage = 'A problem occurred making the places request.';
+      throw PlacesApiException(message: errorMessage, exception: exception);
     }
   }
 
-  String _getLongNameFromComponent(
-      PlaceDetails details, String type) {
+  String _getLongNameFromComponent(PlaceDetails details, String type) {
     try {
       return details.addressComponents
           .firstWhere((component) => component.types.contains(type))
@@ -176,8 +174,7 @@ class PlacesService {
     }
   }
 
-  String _getShortNameFromComponent(
-      PlaceDetails details, String type) {
+  String _getShortNameFromComponent(PlaceDetails details, String type) {
     try {
       return details.addressComponents
           .firstWhere((component) => component.types.contains(type))
@@ -185,5 +182,23 @@ class PlacesService {
     } catch (_) {
       return '';
     }
+  }
+}
+
+/// Thrown from a PlacesApiService class and provides a detailed actionable message
+/// for the developer to use in their code
+class PlacesApiException implements Exception {
+  final String message;
+  final Object? exception;
+
+  PlacesApiException({
+    this.exception,
+    required this.message,
+  });
+
+  @override
+  String toString() {
+    return '''PlacesApiException | $message
+    exception | $exception''';
   }
 }
