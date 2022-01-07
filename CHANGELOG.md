@@ -1,3 +1,7 @@
+## 0.1.0+4
+
+- Updated Dependencies
+
 ## 0.1.0+3
 
 - Added custom `PlacesApiException`
