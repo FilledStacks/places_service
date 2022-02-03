@@ -91,6 +91,14 @@ class PlacesService {
           searchString: '$streetNumber $streetShort, $city, $state',
           lat: detailsResponse.result.geometry!.location.lat,
           lng: detailsResponse.result.geometry!.location.lng,
+          northEastLat:
+              detailsResponse.result.geometry!.viewport?.northeast.lat,
+          northEastLng:
+              detailsResponse.result.geometry!.viewport?.northeast.lng,
+          southWestLat:
+              detailsResponse.result.geometry!.viewport?.southwest.lat,
+          southWestLng:
+              detailsResponse.result.geometry!.viewport?.southwest.lng,
         );
       },
       warningMessageForNotOkayResult: 'Could not get places from Google Maps',

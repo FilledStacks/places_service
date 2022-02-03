@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'application_models.dart';
 
@@ -30,7 +32,11 @@ class _$PlacesDetailsTearOff {
       String? city,
       String? searchString,
       double? lat,
-      double? lng}) {
+      double? lng,
+      double? northEastLat,
+      double? northEastLng,
+      double? southWestLat,
+      double? southWestLng}) {
     return _PlacesDetails(
       placeId: placeId,
       streetNumber: streetNumber,
@@ -42,10 +48,14 @@ class _$PlacesDetailsTearOff {
       searchString: searchString,
       lat: lat,
       lng: lng,
+      northEastLat: northEastLat,
+      northEastLng: northEastLng,
+      southWestLat: southWestLat,
+      southWestLng: southWestLng,
     );
   }
 
-  PlacesDetails fromJson(Map<String, Object> json) {
+  PlacesDetails fromJson(Map<String, Object?> json) {
     return PlacesDetails.fromJson(json);
   }
 }
@@ -65,6 +75,10 @@ mixin _$PlacesDetails {
   String? get searchString => throw _privateConstructorUsedError;
   double? get lat => throw _privateConstructorUsedError;
   double? get lng => throw _privateConstructorUsedError;
+  double? get northEastLat => throw _privateConstructorUsedError;
+  double? get northEastLng => throw _privateConstructorUsedError;
+  double? get southWestLat => throw _privateConstructorUsedError;
+  double? get southWestLng => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -87,7 +101,11 @@ abstract class $PlacesDetailsCopyWith<$Res> {
       String? city,
       String? searchString,
       double? lat,
-      double? lng});
+      double? lng,
+      double? northEastLat,
+      double? northEastLng,
+      double? southWestLat,
+      double? southWestLng});
 }
 
 /// @nodoc
@@ -111,6 +129,10 @@ class _$PlacesDetailsCopyWithImpl<$Res>
     Object? searchString = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
+    Object? northEastLat = freezed,
+    Object? northEastLng = freezed,
+    Object? southWestLat = freezed,
+    Object? southWestLng = freezed,
   }) {
     return _then(_value.copyWith(
       placeId: placeId == freezed
@@ -153,6 +175,22 @@ class _$PlacesDetailsCopyWithImpl<$Res>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double?,
+      northEastLat: northEastLat == freezed
+          ? _value.northEastLat
+          : northEastLat // ignore: cast_nullable_to_non_nullable
+              as double?,
+      northEastLng: northEastLng == freezed
+          ? _value.northEastLng
+          : northEastLng // ignore: cast_nullable_to_non_nullable
+              as double?,
+      southWestLat: southWestLat == freezed
+          ? _value.southWestLat
+          : southWestLat // ignore: cast_nullable_to_non_nullable
+              as double?,
+      southWestLng: southWestLng == freezed
+          ? _value.southWestLng
+          : southWestLng // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -174,7 +212,11 @@ abstract class _$PlacesDetailsCopyWith<$Res>
       String? city,
       String? searchString,
       double? lat,
-      double? lng});
+      double? lng,
+      double? northEastLat,
+      double? northEastLng,
+      double? southWestLat,
+      double? southWestLng});
 }
 
 /// @nodoc
@@ -200,6 +242,10 @@ class __$PlacesDetailsCopyWithImpl<$Res>
     Object? searchString = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
+    Object? northEastLat = freezed,
+    Object? northEastLng = freezed,
+    Object? southWestLat = freezed,
+    Object? southWestLng = freezed,
   }) {
     return _then(_PlacesDetails(
       placeId: placeId == freezed
@@ -242,6 +288,22 @@ class __$PlacesDetailsCopyWithImpl<$Res>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double?,
+      northEastLat: northEastLat == freezed
+          ? _value.northEastLat
+          : northEastLat // ignore: cast_nullable_to_non_nullable
+              as double?,
+      northEastLng: northEastLng == freezed
+          ? _value.northEastLng
+          : northEastLng // ignore: cast_nullable_to_non_nullable
+              as double?,
+      southWestLat: southWestLat == freezed
+          ? _value.southWestLat
+          : southWestLat // ignore: cast_nullable_to_non_nullable
+              as double?,
+      southWestLng: southWestLng == freezed
+          ? _value.southWestLng
+          : southWestLng // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -259,10 +321,14 @@ class _$_PlacesDetails implements _PlacesDetails {
       this.city,
       this.searchString,
       this.lat,
-      this.lng});
+      this.lng,
+      this.northEastLat,
+      this.northEastLng,
+      this.southWestLat,
+      this.southWestLng});
 
   factory _$_PlacesDetails.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlacesDetailsFromJson(json);
+      _$$_PlacesDetailsFromJson(json);
 
   @override
   final String? placeId;
@@ -284,56 +350,66 @@ class _$_PlacesDetails implements _PlacesDetails {
   final double? lat;
   @override
   final double? lng;
+  @override
+  final double? northEastLat;
+  @override
+  final double? northEastLng;
+  @override
+  final double? southWestLat;
+  @override
+  final double? southWestLng;
 
   @override
   String toString() {
-    return 'PlacesDetails(placeId: $placeId, streetNumber: $streetNumber, streetShort: $streetShort, streetLong: $streetLong, state: $state, zip: $zip, city: $city, searchString: $searchString, lat: $lat, lng: $lng)';
+    return 'PlacesDetails(placeId: $placeId, streetNumber: $streetNumber, streetShort: $streetShort, streetLong: $streetLong, state: $state, zip: $zip, city: $city, searchString: $searchString, lat: $lat, lng: $lng, northEastLat: $northEastLat, northEastLng: $northEastLng, southWestLat: $southWestLat, southWestLng: $southWestLng)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PlacesDetails &&
-            (identical(other.placeId, placeId) ||
-                const DeepCollectionEquality()
-                    .equals(other.placeId, placeId)) &&
-            (identical(other.streetNumber, streetNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.streetNumber, streetNumber)) &&
-            (identical(other.streetShort, streetShort) ||
-                const DeepCollectionEquality()
-                    .equals(other.streetShort, streetShort)) &&
-            (identical(other.streetLong, streetLong) ||
-                const DeepCollectionEquality()
-                    .equals(other.streetLong, streetLong)) &&
-            (identical(other.state, state) ||
-                const DeepCollectionEquality().equals(other.state, state)) &&
-            (identical(other.zip, zip) ||
-                const DeepCollectionEquality().equals(other.zip, zip)) &&
-            (identical(other.city, city) ||
-                const DeepCollectionEquality().equals(other.city, city)) &&
-            (identical(other.searchString, searchString) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchString, searchString)) &&
-            (identical(other.lat, lat) ||
-                const DeepCollectionEquality().equals(other.lat, lat)) &&
-            (identical(other.lng, lng) ||
-                const DeepCollectionEquality().equals(other.lng, lng)));
+        (other.runtimeType == runtimeType &&
+            other is _PlacesDetails &&
+            const DeepCollectionEquality().equals(other.placeId, placeId) &&
+            const DeepCollectionEquality()
+                .equals(other.streetNumber, streetNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.streetShort, streetShort) &&
+            const DeepCollectionEquality()
+                .equals(other.streetLong, streetLong) &&
+            const DeepCollectionEquality().equals(other.state, state) &&
+            const DeepCollectionEquality().equals(other.zip, zip) &&
+            const DeepCollectionEquality().equals(other.city, city) &&
+            const DeepCollectionEquality()
+                .equals(other.searchString, searchString) &&
+            const DeepCollectionEquality().equals(other.lat, lat) &&
+            const DeepCollectionEquality().equals(other.lng, lng) &&
+            const DeepCollectionEquality()
+                .equals(other.northEastLat, northEastLat) &&
+            const DeepCollectionEquality()
+                .equals(other.northEastLng, northEastLng) &&
+            const DeepCollectionEquality()
+                .equals(other.southWestLat, southWestLat) &&
+            const DeepCollectionEquality()
+                .equals(other.southWestLng, southWestLng));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(placeId) ^
-      const DeepCollectionEquality().hash(streetNumber) ^
-      const DeepCollectionEquality().hash(streetShort) ^
-      const DeepCollectionEquality().hash(streetLong) ^
-      const DeepCollectionEquality().hash(state) ^
-      const DeepCollectionEquality().hash(zip) ^
-      const DeepCollectionEquality().hash(city) ^
-      const DeepCollectionEquality().hash(searchString) ^
-      const DeepCollectionEquality().hash(lat) ^
-      const DeepCollectionEquality().hash(lng);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(placeId),
+      const DeepCollectionEquality().hash(streetNumber),
+      const DeepCollectionEquality().hash(streetShort),
+      const DeepCollectionEquality().hash(streetLong),
+      const DeepCollectionEquality().hash(state),
+      const DeepCollectionEquality().hash(zip),
+      const DeepCollectionEquality().hash(city),
+      const DeepCollectionEquality().hash(searchString),
+      const DeepCollectionEquality().hash(lat),
+      const DeepCollectionEquality().hash(lng),
+      const DeepCollectionEquality().hash(northEastLat),
+      const DeepCollectionEquality().hash(northEastLng),
+      const DeepCollectionEquality().hash(southWestLat),
+      const DeepCollectionEquality().hash(southWestLng));
 
   @JsonKey(ignore: true)
   @override
@@ -342,7 +418,7 @@ class _$_PlacesDetails implements _PlacesDetails {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlacesDetailsToJson(this);
+    return _$$_PlacesDetailsToJson(this);
   }
 }
 
@@ -357,31 +433,43 @@ abstract class _PlacesDetails implements PlacesDetails {
       String? city,
       String? searchString,
       double? lat,
-      double? lng}) = _$_PlacesDetails;
+      double? lng,
+      double? northEastLat,
+      double? northEastLng,
+      double? southWestLat,
+      double? southWestLng}) = _$_PlacesDetails;
 
   factory _PlacesDetails.fromJson(Map<String, dynamic> json) =
       _$_PlacesDetails.fromJson;
 
   @override
-  String? get placeId => throw _privateConstructorUsedError;
+  String? get placeId;
   @override
-  String? get streetNumber => throw _privateConstructorUsedError;
+  String? get streetNumber;
   @override
-  String? get streetShort => throw _privateConstructorUsedError;
+  String? get streetShort;
   @override
-  String? get streetLong => throw _privateConstructorUsedError;
+  String? get streetLong;
   @override
-  String? get state => throw _privateConstructorUsedError;
+  String? get state;
   @override
-  String? get zip => throw _privateConstructorUsedError;
+  String? get zip;
   @override
-  String? get city => throw _privateConstructorUsedError;
+  String? get city;
   @override
-  String? get searchString => throw _privateConstructorUsedError;
+  String? get searchString;
   @override
-  double? get lat => throw _privateConstructorUsedError;
+  double? get lat;
   @override
-  double? get lng => throw _privateConstructorUsedError;
+  double? get lng;
+  @override
+  double? get northEastLat;
+  @override
+  double? get northEastLng;
+  @override
+  double? get southWestLat;
+  @override
+  double? get southWestLng;
   @override
   @JsonKey(ignore: true)
   _$PlacesDetailsCopyWith<_PlacesDetails> get copyWith =>
@@ -410,7 +498,7 @@ class _$PlacesAutoCompleteResultTearOff {
     );
   }
 
-  PlacesAutoCompleteResult fromJson(Map<String, Object> json) {
+  PlacesAutoCompleteResult fromJson(Map<String, Object?> json) {
     return PlacesAutoCompleteResult.fromJson(json);
   }
 }
@@ -541,7 +629,7 @@ class _$_PlacesAutoCompleteResult implements _PlacesAutoCompleteResult {
       {this.placeId, this.mainText, this.description, this.secondaryText});
 
   factory _$_PlacesAutoCompleteResult.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlacesAutoCompleteResultFromJson(json);
+      _$$_PlacesAutoCompleteResultFromJson(json);
 
   @override
   final String? placeId;
@@ -560,28 +648,23 @@ class _$_PlacesAutoCompleteResult implements _PlacesAutoCompleteResult {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PlacesAutoCompleteResult &&
-            (identical(other.placeId, placeId) ||
-                const DeepCollectionEquality()
-                    .equals(other.placeId, placeId)) &&
-            (identical(other.mainText, mainText) ||
-                const DeepCollectionEquality()
-                    .equals(other.mainText, mainText)) &&
-            (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
-            (identical(other.secondaryText, secondaryText) ||
-                const DeepCollectionEquality()
-                    .equals(other.secondaryText, secondaryText)));
+        (other.runtimeType == runtimeType &&
+            other is _PlacesAutoCompleteResult &&
+            const DeepCollectionEquality().equals(other.placeId, placeId) &&
+            const DeepCollectionEquality().equals(other.mainText, mainText) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality()
+                .equals(other.secondaryText, secondaryText));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(placeId) ^
-      const DeepCollectionEquality().hash(mainText) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(secondaryText);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(placeId),
+      const DeepCollectionEquality().hash(mainText),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(secondaryText));
 
   @JsonKey(ignore: true)
   @override
@@ -591,7 +674,7 @@ class _$_PlacesAutoCompleteResult implements _PlacesAutoCompleteResult {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlacesAutoCompleteResultToJson(this);
+    return _$$_PlacesAutoCompleteResultToJson(this);
   }
 }
 
@@ -606,13 +689,13 @@ abstract class _PlacesAutoCompleteResult implements PlacesAutoCompleteResult {
       _$_PlacesAutoCompleteResult.fromJson;
 
   @override
-  String? get placeId => throw _privateConstructorUsedError;
+  String? get placeId;
   @override
-  String? get mainText => throw _privateConstructorUsedError;
+  String? get mainText;
   @override
-  String? get description => throw _privateConstructorUsedError;
+  String? get description;
   @override
-  String? get secondaryText => throw _privateConstructorUsedError;
+  String? get secondaryText;
   @override
   @JsonKey(ignore: true)
   _$PlacesAutoCompleteResultCopyWith<_PlacesAutoCompleteResult> get copyWith =>
@@ -640,7 +723,7 @@ class _$PlacesLocationTearOff {
     );
   }
 
-  PlacesLocation fromJson(Map<String, Object> json) {
+  PlacesLocation fromJson(Map<String, Object?> json) {
     return PlacesLocation.fromJson(json);
   }
 }
@@ -764,7 +847,7 @@ class _$_PlacesLocation implements _PlacesLocation {
       {required this.id, this.longitude, this.latitude, this.placeName});
 
   factory _$_PlacesLocation.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlacesLocationFromJson(json);
+      _$$_PlacesLocationFromJson(json);
 
   @override
   final String id;
@@ -783,27 +866,21 @@ class _$_PlacesLocation implements _PlacesLocation {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PlacesLocation &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.longitude, longitude) ||
-                const DeepCollectionEquality()
-                    .equals(other.longitude, longitude)) &&
-            (identical(other.latitude, latitude) ||
-                const DeepCollectionEquality()
-                    .equals(other.latitude, latitude)) &&
-            (identical(other.placeName, placeName) ||
-                const DeepCollectionEquality()
-                    .equals(other.placeName, placeName)));
+        (other.runtimeType == runtimeType &&
+            other is _PlacesLocation &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.longitude, longitude) &&
+            const DeepCollectionEquality().equals(other.latitude, latitude) &&
+            const DeepCollectionEquality().equals(other.placeName, placeName));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(longitude) ^
-      const DeepCollectionEquality().hash(latitude) ^
-      const DeepCollectionEquality().hash(placeName);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(longitude),
+      const DeepCollectionEquality().hash(latitude),
+      const DeepCollectionEquality().hash(placeName));
 
   @JsonKey(ignore: true)
   @override
@@ -812,7 +889,7 @@ class _$_PlacesLocation implements _PlacesLocation {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlacesLocationToJson(this);
+    return _$$_PlacesLocationToJson(this);
   }
 }
 
@@ -827,13 +904,13 @@ abstract class _PlacesLocation implements PlacesLocation {
       _$_PlacesLocation.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  double? get longitude => throw _privateConstructorUsedError;
+  double? get longitude;
   @override
-  double? get latitude => throw _privateConstructorUsedError;
+  double? get latitude;
   @override
-  String? get placeName => throw _privateConstructorUsedError;
+  String? get placeName;
   @override
   @JsonKey(ignore: true)
   _$PlacesLocationCopyWith<_PlacesLocation> get copyWith =>
