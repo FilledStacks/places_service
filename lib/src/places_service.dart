@@ -91,6 +91,14 @@ class PlacesService {
           searchString: '$streetNumber $streetShort, $city, $state',
           lat: detailsResponse.result.geometry!.location.lat,
           lng: detailsResponse.result.geometry!.location.lng,
+          northEastLat:
+              detailsResponse.result.geometry!.viewport?.northeast.lat,
+          northEastLng:
+              detailsResponse.result.geometry!.viewport?.northeast.lng,
+          southWestLat:
+              detailsResponse.result.geometry!.viewport?.southwest.lat,
+          southWestLng:
+              detailsResponse.result.geometry!.viewport?.southwest.lng,
         );
       },
       warningMessageForNotOkayResult: 'Could not get places from Google Maps',
@@ -140,6 +148,34 @@ class PlacesService {
               longitude: result.geometry!.location.lng,
               placeName: result.vicinity,
             ));
+        return results.toList();
+      },
+      warningMessageForNotOkayResult: 'Could not get places from Google Maps',
+    );
+  }
+
+  Future<List<PlacesLocation>> getPlacesAtLocation(
+    double latitude,
+    double longitude,
+    double radius,
+  ) async {
+    return _runPlacesRequest<List<PlacesLocation>, PlacesSearchResponse>(
+      placesRequest: _places!.searchNearbyWithRadius(
+        Location(
+          lat: latitude,
+          lng: longitude,
+        ),
+        radius,
+      ),
+      serialiseResponse: (searchResponse) {
+        final results = searchResponse.results.map(
+          (result) => PlacesLocation(
+            id: result.placeId,
+            latitude: result.geometry!.location.lat,
+            longitude: result.geometry!.location.lng,
+            placeName: result.vicinity,
+          ),
+        );
         return results.toList();
       },
       warningMessageForNotOkayResult: 'Could not get places from Google Maps',

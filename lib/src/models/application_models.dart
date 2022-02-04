@@ -16,6 +16,10 @@ class PlacesDetails with _$PlacesDetails {
     String? searchString,
     double? lat,
     double? lng,
+    double? northEastLat,
+    double? northEastLng,
+    double? southWestLat,
+    double? southWestLng,
   }) = _PlacesDetails;
 
   factory PlacesDetails.fromJson(Map<String, dynamic> json) =>
