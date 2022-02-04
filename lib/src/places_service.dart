@@ -157,6 +157,7 @@ class PlacesService {
   Future<List<PlacesLocation>> getPlacesAtLocation(
     double latitude,
     double longitude,
+    double radius,
   ) async {
     return _runPlacesRequest<List<PlacesLocation>, PlacesSearchResponse>(
       placesRequest: _places!.searchNearbyWithRadius(
@@ -164,7 +165,7 @@ class PlacesService {
           lat: latitude,
           lng: longitude,
         ),
-        50,
+        radius,
       ),
       serialiseResponse: (searchResponse) {
         final results = searchResponse.results.map(
