@@ -154,6 +154,33 @@ class PlacesService {
     );
   }
 
+  Future<List<PlacesLocation>> getPlacesAtLocation(
+    double latitude,
+    double longitude,
+  ) async {
+    return _runPlacesRequest<List<PlacesLocation>, PlacesSearchResponse>(
+      placesRequest: _places!.searchNearbyWithRadius(
+        Location(
+          lat: latitude,
+          lng: longitude,
+        ),
+        50,
+      ),
+      serialiseResponse: (searchResponse) {
+        final results = searchResponse.results.map(
+          (result) => PlacesLocation(
+            id: result.placeId,
+            latitude: result.geometry!.location.lat,
+            longitude: result.geometry!.location.lng,
+            placeName: result.vicinity,
+          ),
+        );
+        return results.toList();
+      },
+      warningMessageForNotOkayResult: 'Could not get places from Google Maps',
+    );
+  }
+
   Future<RT> _runPlacesRequest<RT, AT>({
     required Future placesRequest,
     required RT Function(AT) serialiseResponse,
