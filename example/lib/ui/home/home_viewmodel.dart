@@ -32,9 +32,7 @@ class HomeViewModel extends FormViewModel {
           await runBusyFuture(_placesService.getAutoComplete(addressValue!));
       print(placesResults);
 
-      if (placesResults != null) {
-        _autoCompleteResults = placesResults;
-      }
+      _autoCompleteResults = placesResults;
 
       notifyListeners();
     }

@@ -4,30 +4,30 @@ version: 0.1.0+3
 homepage: https://filledstacks.com
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
-  flutter: '>=1.17.0'
+  sdk: '>=2.17.0 <3.0.0'
+  flutter: '>=3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
   # data models
-  freezed_annotation: ^1.1.0
-  json_annotation: ^4.4.0
+  freezed_annotation: ^2.0.3
+  json_annotation: ^4.5.0
 
-  geolocator: ^8.0.5
+  geolocator: ^8.2.1
   google_maps_webservice: ^0.0.20-nullsafety.5
-  uuid: ^3.0.5
+  uuid: ^3.0.6
   tuple: ^2.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  build_runner: 2.1.7
+  build_runner: ^2.1.11
   # data models
-  freezed: ^1.1.1
-  json_serializable: ^6.1.4
+  freezed: ^2.0.3+1
+  json_serializable: ^6.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
