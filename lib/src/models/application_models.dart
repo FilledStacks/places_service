@@ -7,6 +7,8 @@ part 'application_models.g.dart';
 class PlacesDetails with _$PlacesDetails {
   factory PlacesDetails({
     String? placeId,
+    String? countryShort,
+    String? countryLong,
     String? streetNumber,
     String? streetShort,
     String? streetLong,

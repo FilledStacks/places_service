@@ -39,4 +39,15 @@ class HomeViewModel extends FormViewModel {
       notifyListeners();
     }
   }
+
+  Future<void> getDetails(final String? placeId) async {
+    if (placeId == null) {
+      return;
+    }
+    if (addressValue != null) {
+      final placeDetails =
+          await runBusyFuture(_placesService.getPlaceDetails(placeId));
+      print(placeDetails);
+    }
+  }
 }

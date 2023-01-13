@@ -32,7 +32,18 @@ class PlacesService {
   /// Gets auto complete results from the GoogleMapsApi
   ///
   /// Returns List of [PlacesAutoCompleteResult] or a [String] for a friendly error message
-  Future<List<PlacesAutoCompleteResult>> getAutoComplete(String input) async {
+  Future<List<PlacesAutoCompleteResult>> getAutoComplete(
+    String input, {
+    num? offset,
+    Location? origin,
+    Location? location,
+    num? radius,
+    String? language,
+    List<String> types = const [],
+    List<Component> components = const [],
+    bool strictbounds = false,
+    String? region,
+  }) async {
     if (_sessionToken == null || _resetSessionTokenForNextAutoComplete) {
       // Set reset back to false. We only want a new session when the user has selected`
       // a place. Which for us means getPlaceDetails has been called.
@@ -44,7 +55,19 @@ class PlacesService {
 
     return _runPlacesRequest<List<PlacesAutoCompleteResult>,
         PlacesAutocompleteResponse>(
-      placesRequest: _places!.autocomplete(input, sessionToken: _sessionToken),
+      placesRequest: _places!.autocomplete(
+        input,
+        sessionToken: _sessionToken,
+        offset: offset,
+        origin: origin,
+        location: location,
+        radius: radius,
+        language: language,
+        types: types,
+        components: components,
+        strictbounds: strictbounds,
+        region: region,
+      ),
       serialiseResponse: (autoCompleteResults) {
         final results = autoCompleteResults.predictions.where((prediction) {
           final address =
@@ -65,10 +88,20 @@ class PlacesService {
   }
 
   /// Returns the [PlacesDetails] associated with the placeId
-  Future<PlacesDetails> getPlaceDetails(String placeId) async {
+  Future<PlacesDetails> getPlaceDetails(
+    String placeId, {
+    List<String> fields = const [],
+    String? language,
+    String? region,
+  }) async {
     return _runPlacesRequest<PlacesDetails, PlacesDetailsResponse>(
-      placesRequest:
-          _places!.getDetailsByPlaceId(placeId, sessionToken: _sessionToken),
+      placesRequest: _places!.getDetailsByPlaceId(
+        placeId,
+        sessionToken: _sessionToken,
+        fields: fields,
+        language: language,
+        region: region,
+      ),
       serialiseResponse: (detailsResponse) {
         // Indicate token reset on next auto complete request
         _resetSessionTokenForNextAutoComplete = true;
@@ -79,9 +112,10 @@ class PlacesService {
         var city = _getShortNameFromComponent(details, 'locality');
         var state =
             _getShortNameFromComponent(details, 'administrative_area_level_1');
-
         return PlacesDetails(
           placeId: placeId,
+          countryShort: _getShortNameFromComponent(details, 'country'),
+          countryLong: _getLongNameFromComponent(details, 'country'),
           streetNumber: streetNumber,
           streetShort: streetShort,
           streetLong: _getLongNameFromComponent(details, 'route'),
@@ -97,7 +131,15 @@ class PlacesService {
     );
   }
 
-  Future getPlacesAtCurrentLocation() async {
+  Future getPlacesAtCurrentLocation({
+    String? type,
+    String? keyword,
+    String? language,
+    PriceLevel? minprice,
+    PriceLevel? maxprice,
+    String? name,
+    String? pagetoken,
+  }) async {
     var currentPosition;
     try {
       for (var trial in [
@@ -132,6 +174,13 @@ class PlacesService {
           lng: _currentPosition.longitude!,
         ),
         50,
+        type: type,
+        keyword: keyword,
+        language: language,
+        minprice: minprice,
+        maxprice: maxprice,
+        name: name,
+        pagetoken: pagetoken,
       ),
       serialiseResponse: (searchResponse) {
         var results = searchResponse.results.map((result) => PlacesLocation(
