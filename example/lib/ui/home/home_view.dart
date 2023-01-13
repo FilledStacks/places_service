@@ -31,6 +31,7 @@ class HomeView extends StatelessWidget with $HomeView {
             Text('We have no suggestions for you, change the address above.'),
           if (!model.isBusy && model.hasAutoCompleteResults)
             ...model.autoCompleteResults.map((autoCompleteResult) => ListTile(
+                  onTap: () => model.getDetails(autoCompleteResult.placeId),
                   title: Text(autoCompleteResult.mainText ?? ''),
                   subtitle: Text(autoCompleteResult.secondaryText ?? ''),
                 ))
