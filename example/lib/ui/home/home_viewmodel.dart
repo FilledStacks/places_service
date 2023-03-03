@@ -16,7 +16,7 @@ class HomeViewModel extends FormViewModel {
 
   void initialise() {
     _placesService.initialize(
-      apiKey: 'AIzaSyAEmr2Nut0QSVtTbO2SHQKcLSDpM4rlM_8',
+      apiKey: 'YOUR_API_KEY_HERE',
     );
   }
 
