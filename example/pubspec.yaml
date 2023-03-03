@@ -29,7 +29,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   
-  stacked: 
+  stacked: ^3.0.0
+  stacked_services: ^0.9.3
 
   places_service:
     path:
@@ -41,8 +42,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   
-  build_runner:
-  stacked_generator:
+  build_runner: ^2.2.0
+  stacked_generator: ^0.8.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

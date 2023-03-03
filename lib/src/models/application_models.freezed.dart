@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'application_models.dart';
 
@@ -10,48 +12,11 @@ part of 'application_models.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PlacesDetails _$PlacesDetailsFromJson(Map<String, dynamic> json) {
   return _PlacesDetails.fromJson(json);
 }
-
-/// @nodoc
-class _$PlacesDetailsTearOff {
-  const _$PlacesDetailsTearOff();
-
-  _PlacesDetails call(
-      {String? placeId,
-      String? streetNumber,
-      String? streetShort,
-      String? streetLong,
-      String? state,
-      String? zip,
-      String? city,
-      String? searchString,
-      double? lat,
-      double? lng}) {
-    return _PlacesDetails(
-      placeId: placeId,
-      streetNumber: streetNumber,
-      streetShort: streetShort,
-      streetLong: streetLong,
-      state: state,
-      zip: zip,
-      city: city,
-      searchString: searchString,
-      lat: lat,
-      lng: lng,
-    );
-  }
-
-  PlacesDetails fromJson(Map<String, Object> json) {
-    return PlacesDetails.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PlacesDetails = _$PlacesDetailsTearOff();
 
 /// @nodoc
 mixin _$PlacesDetails {
@@ -76,7 +41,8 @@ mixin _$PlacesDetails {
 abstract class $PlacesDetailsCopyWith<$Res> {
   factory $PlacesDetailsCopyWith(
           PlacesDetails value, $Res Function(PlacesDetails) then) =
-      _$PlacesDetailsCopyWithImpl<$Res>;
+      _$PlacesDetailsCopyWithImpl<$Res, PlacesDetails>;
+  @useResult
   $Res call(
       {String? placeId,
       String? streetNumber,
@@ -91,14 +57,16 @@ abstract class $PlacesDetailsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PlacesDetailsCopyWithImpl<$Res>
+class _$PlacesDetailsCopyWithImpl<$Res, $Val extends PlacesDetails>
     implements $PlacesDetailsCopyWith<$Res> {
   _$PlacesDetailsCopyWithImpl(this._value, this._then);
 
-  final PlacesDetails _value;
   // ignore: unused_field
-  final $Res Function(PlacesDetails) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? placeId = freezed,
@@ -113,57 +81,58 @@ class _$PlacesDetailsCopyWithImpl<$Res>
     Object? lng = freezed,
   }) {
     return _then(_value.copyWith(
-      placeId: placeId == freezed
+      placeId: freezed == placeId
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
               as String?,
-      streetNumber: streetNumber == freezed
+      streetNumber: freezed == streetNumber
           ? _value.streetNumber
           : streetNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      streetShort: streetShort == freezed
+      streetShort: freezed == streetShort
           ? _value.streetShort
           : streetShort // ignore: cast_nullable_to_non_nullable
               as String?,
-      streetLong: streetLong == freezed
+      streetLong: freezed == streetLong
           ? _value.streetLong
           : streetLong // ignore: cast_nullable_to_non_nullable
               as String?,
-      state: state == freezed
+      state: freezed == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as String?,
-      zip: zip == freezed
+      zip: freezed == zip
           ? _value.zip
           : zip // ignore: cast_nullable_to_non_nullable
               as String?,
-      city: city == freezed
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String?,
-      searchString: searchString == freezed
+      searchString: freezed == searchString
           ? _value.searchString
           : searchString // ignore: cast_nullable_to_non_nullable
               as String?,
-      lat: lat == freezed
+      lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
               as double?,
-      lng: lng == freezed
+      lng: freezed == lng
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$PlacesDetailsCopyWith<$Res>
+abstract class _$$_PlacesDetailsCopyWith<$Res>
     implements $PlacesDetailsCopyWith<$Res> {
-  factory _$PlacesDetailsCopyWith(
-          _PlacesDetails value, $Res Function(_PlacesDetails) then) =
-      __$PlacesDetailsCopyWithImpl<$Res>;
+  factory _$$_PlacesDetailsCopyWith(
+          _$_PlacesDetails value, $Res Function(_$_PlacesDetails) then) =
+      __$$_PlacesDetailsCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? placeId,
       String? streetNumber,
@@ -178,16 +147,14 @@ abstract class _$PlacesDetailsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PlacesDetailsCopyWithImpl<$Res>
-    extends _$PlacesDetailsCopyWithImpl<$Res>
-    implements _$PlacesDetailsCopyWith<$Res> {
-  __$PlacesDetailsCopyWithImpl(
-      _PlacesDetails _value, $Res Function(_PlacesDetails) _then)
-      : super(_value, (v) => _then(v as _PlacesDetails));
+class __$$_PlacesDetailsCopyWithImpl<$Res>
+    extends _$PlacesDetailsCopyWithImpl<$Res, _$_PlacesDetails>
+    implements _$$_PlacesDetailsCopyWith<$Res> {
+  __$$_PlacesDetailsCopyWithImpl(
+      _$_PlacesDetails _value, $Res Function(_$_PlacesDetails) _then)
+      : super(_value, _then);
 
-  @override
-  _PlacesDetails get _value => super._value as _PlacesDetails;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? placeId = freezed,
@@ -201,44 +168,44 @@ class __$PlacesDetailsCopyWithImpl<$Res>
     Object? lat = freezed,
     Object? lng = freezed,
   }) {
-    return _then(_PlacesDetails(
-      placeId: placeId == freezed
+    return _then(_$_PlacesDetails(
+      placeId: freezed == placeId
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
               as String?,
-      streetNumber: streetNumber == freezed
+      streetNumber: freezed == streetNumber
           ? _value.streetNumber
           : streetNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      streetShort: streetShort == freezed
+      streetShort: freezed == streetShort
           ? _value.streetShort
           : streetShort // ignore: cast_nullable_to_non_nullable
               as String?,
-      streetLong: streetLong == freezed
+      streetLong: freezed == streetLong
           ? _value.streetLong
           : streetLong // ignore: cast_nullable_to_non_nullable
               as String?,
-      state: state == freezed
+      state: freezed == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as String?,
-      zip: zip == freezed
+      zip: freezed == zip
           ? _value.zip
           : zip // ignore: cast_nullable_to_non_nullable
               as String?,
-      city: city == freezed
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String?,
-      searchString: searchString == freezed
+      searchString: freezed == searchString
           ? _value.searchString
           : searchString // ignore: cast_nullable_to_non_nullable
               as String?,
-      lat: lat == freezed
+      lat: freezed == lat
           ? _value.lat
           : lat // ignore: cast_nullable_to_non_nullable
               as double?,
-      lng: lng == freezed
+      lng: freezed == lng
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as double?,
@@ -262,7 +229,7 @@ class _$_PlacesDetails implements _PlacesDetails {
       this.lng});
 
   factory _$_PlacesDetails.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlacesDetailsFromJson(json);
+      _$$_PlacesDetailsFromJson(json);
 
   @override
   final String? placeId;
@@ -293,98 +260,82 @@ class _$_PlacesDetails implements _PlacesDetails {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PlacesDetails &&
-            (identical(other.placeId, placeId) ||
-                const DeepCollectionEquality()
-                    .equals(other.placeId, placeId)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_PlacesDetails &&
+            (identical(other.placeId, placeId) || other.placeId == placeId) &&
             (identical(other.streetNumber, streetNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.streetNumber, streetNumber)) &&
+                other.streetNumber == streetNumber) &&
             (identical(other.streetShort, streetShort) ||
-                const DeepCollectionEquality()
-                    .equals(other.streetShort, streetShort)) &&
+                other.streetShort == streetShort) &&
             (identical(other.streetLong, streetLong) ||
-                const DeepCollectionEquality()
-                    .equals(other.streetLong, streetLong)) &&
-            (identical(other.state, state) ||
-                const DeepCollectionEquality().equals(other.state, state)) &&
-            (identical(other.zip, zip) ||
-                const DeepCollectionEquality().equals(other.zip, zip)) &&
-            (identical(other.city, city) ||
-                const DeepCollectionEquality().equals(other.city, city)) &&
+                other.streetLong == streetLong) &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.zip, zip) || other.zip == zip) &&
+            (identical(other.city, city) || other.city == city) &&
             (identical(other.searchString, searchString) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchString, searchString)) &&
-            (identical(other.lat, lat) ||
-                const DeepCollectionEquality().equals(other.lat, lat)) &&
-            (identical(other.lng, lng) ||
-                const DeepCollectionEquality().equals(other.lng, lng)));
+                other.searchString == searchString) &&
+            (identical(other.lat, lat) || other.lat == lat) &&
+            (identical(other.lng, lng) || other.lng == lng));
   }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(placeId) ^
-      const DeepCollectionEquality().hash(streetNumber) ^
-      const DeepCollectionEquality().hash(streetShort) ^
-      const DeepCollectionEquality().hash(streetLong) ^
-      const DeepCollectionEquality().hash(state) ^
-      const DeepCollectionEquality().hash(zip) ^
-      const DeepCollectionEquality().hash(city) ^
-      const DeepCollectionEquality().hash(searchString) ^
-      const DeepCollectionEquality().hash(lat) ^
-      const DeepCollectionEquality().hash(lng);
 
   @JsonKey(ignore: true)
   @override
-  _$PlacesDetailsCopyWith<_PlacesDetails> get copyWith =>
-      __$PlacesDetailsCopyWithImpl<_PlacesDetails>(this, _$identity);
+  int get hashCode => Object.hash(runtimeType, placeId, streetNumber,
+      streetShort, streetLong, state, zip, city, searchString, lat, lng);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PlacesDetailsCopyWith<_$_PlacesDetails> get copyWith =>
+      __$$_PlacesDetailsCopyWithImpl<_$_PlacesDetails>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlacesDetailsToJson(this);
+    return _$$_PlacesDetailsToJson(
+      this,
+    );
   }
 }
 
 abstract class _PlacesDetails implements PlacesDetails {
   factory _PlacesDetails(
-      {String? placeId,
-      String? streetNumber,
-      String? streetShort,
-      String? streetLong,
-      String? state,
-      String? zip,
-      String? city,
-      String? searchString,
-      double? lat,
-      double? lng}) = _$_PlacesDetails;
+      {final String? placeId,
+      final String? streetNumber,
+      final String? streetShort,
+      final String? streetLong,
+      final String? state,
+      final String? zip,
+      final String? city,
+      final String? searchString,
+      final double? lat,
+      final double? lng}) = _$_PlacesDetails;
 
   factory _PlacesDetails.fromJson(Map<String, dynamic> json) =
       _$_PlacesDetails.fromJson;
 
   @override
-  String? get placeId => throw _privateConstructorUsedError;
+  String? get placeId;
   @override
-  String? get streetNumber => throw _privateConstructorUsedError;
+  String? get streetNumber;
   @override
-  String? get streetShort => throw _privateConstructorUsedError;
+  String? get streetShort;
   @override
-  String? get streetLong => throw _privateConstructorUsedError;
+  String? get streetLong;
   @override
-  String? get state => throw _privateConstructorUsedError;
+  String? get state;
   @override
-  String? get zip => throw _privateConstructorUsedError;
+  String? get zip;
   @override
-  String? get city => throw _privateConstructorUsedError;
+  String? get city;
   @override
-  String? get searchString => throw _privateConstructorUsedError;
+  String? get searchString;
   @override
-  double? get lat => throw _privateConstructorUsedError;
+  double? get lat;
   @override
-  double? get lng => throw _privateConstructorUsedError;
+  double? get lng;
   @override
   @JsonKey(ignore: true)
-  _$PlacesDetailsCopyWith<_PlacesDetails> get copyWith =>
+  _$$_PlacesDetailsCopyWith<_$_PlacesDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -392,31 +343,6 @@ PlacesAutoCompleteResult _$PlacesAutoCompleteResultFromJson(
     Map<String, dynamic> json) {
   return _PlacesAutoCompleteResult.fromJson(json);
 }
-
-/// @nodoc
-class _$PlacesAutoCompleteResultTearOff {
-  const _$PlacesAutoCompleteResultTearOff();
-
-  _PlacesAutoCompleteResult call(
-      {String? placeId,
-      String? mainText,
-      String? description,
-      String? secondaryText}) {
-    return _PlacesAutoCompleteResult(
-      placeId: placeId,
-      mainText: mainText,
-      description: description,
-      secondaryText: secondaryText,
-    );
-  }
-
-  PlacesAutoCompleteResult fromJson(Map<String, Object> json) {
-    return PlacesAutoCompleteResult.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PlacesAutoCompleteResult = _$PlacesAutoCompleteResultTearOff();
 
 /// @nodoc
 mixin _$PlacesAutoCompleteResult {
@@ -435,7 +361,8 @@ mixin _$PlacesAutoCompleteResult {
 abstract class $PlacesAutoCompleteResultCopyWith<$Res> {
   factory $PlacesAutoCompleteResultCopyWith(PlacesAutoCompleteResult value,
           $Res Function(PlacesAutoCompleteResult) then) =
-      _$PlacesAutoCompleteResultCopyWithImpl<$Res>;
+      _$PlacesAutoCompleteResultCopyWithImpl<$Res, PlacesAutoCompleteResult>;
+  @useResult
   $Res call(
       {String? placeId,
       String? mainText,
@@ -444,14 +371,17 @@ abstract class $PlacesAutoCompleteResultCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PlacesAutoCompleteResultCopyWithImpl<$Res>
+class _$PlacesAutoCompleteResultCopyWithImpl<$Res,
+        $Val extends PlacesAutoCompleteResult>
     implements $PlacesAutoCompleteResultCopyWith<$Res> {
   _$PlacesAutoCompleteResultCopyWithImpl(this._value, this._then);
 
-  final PlacesAutoCompleteResult _value;
   // ignore: unused_field
-  final $Res Function(PlacesAutoCompleteResult) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? placeId = freezed,
@@ -460,33 +390,35 @@ class _$PlacesAutoCompleteResultCopyWithImpl<$Res>
     Object? secondaryText = freezed,
   }) {
     return _then(_value.copyWith(
-      placeId: placeId == freezed
+      placeId: freezed == placeId
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
               as String?,
-      mainText: mainText == freezed
+      mainText: freezed == mainText
           ? _value.mainText
           : mainText // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      secondaryText: secondaryText == freezed
+      secondaryText: freezed == secondaryText
           ? _value.secondaryText
           : secondaryText // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$PlacesAutoCompleteResultCopyWith<$Res>
+abstract class _$$_PlacesAutoCompleteResultCopyWith<$Res>
     implements $PlacesAutoCompleteResultCopyWith<$Res> {
-  factory _$PlacesAutoCompleteResultCopyWith(_PlacesAutoCompleteResult value,
-          $Res Function(_PlacesAutoCompleteResult) then) =
-      __$PlacesAutoCompleteResultCopyWithImpl<$Res>;
+  factory _$$_PlacesAutoCompleteResultCopyWith(
+          _$_PlacesAutoCompleteResult value,
+          $Res Function(_$_PlacesAutoCompleteResult) then) =
+      __$$_PlacesAutoCompleteResultCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? placeId,
       String? mainText,
@@ -495,17 +427,15 @@ abstract class _$PlacesAutoCompleteResultCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PlacesAutoCompleteResultCopyWithImpl<$Res>
-    extends _$PlacesAutoCompleteResultCopyWithImpl<$Res>
-    implements _$PlacesAutoCompleteResultCopyWith<$Res> {
-  __$PlacesAutoCompleteResultCopyWithImpl(_PlacesAutoCompleteResult _value,
-      $Res Function(_PlacesAutoCompleteResult) _then)
-      : super(_value, (v) => _then(v as _PlacesAutoCompleteResult));
+class __$$_PlacesAutoCompleteResultCopyWithImpl<$Res>
+    extends _$PlacesAutoCompleteResultCopyWithImpl<$Res,
+        _$_PlacesAutoCompleteResult>
+    implements _$$_PlacesAutoCompleteResultCopyWith<$Res> {
+  __$$_PlacesAutoCompleteResultCopyWithImpl(_$_PlacesAutoCompleteResult _value,
+      $Res Function(_$_PlacesAutoCompleteResult) _then)
+      : super(_value, _then);
 
-  @override
-  _PlacesAutoCompleteResult get _value =>
-      super._value as _PlacesAutoCompleteResult;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? placeId = freezed,
@@ -513,20 +443,20 @@ class __$PlacesAutoCompleteResultCopyWithImpl<$Res>
     Object? description = freezed,
     Object? secondaryText = freezed,
   }) {
-    return _then(_PlacesAutoCompleteResult(
-      placeId: placeId == freezed
+    return _then(_$_PlacesAutoCompleteResult(
+      placeId: freezed == placeId
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
               as String?,
-      mainText: mainText == freezed
+      mainText: freezed == mainText
           ? _value.mainText
           : mainText // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: description == freezed
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      secondaryText: secondaryText == freezed
+      secondaryText: freezed == secondaryText
           ? _value.secondaryText
           : secondaryText // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -541,7 +471,7 @@ class _$_PlacesAutoCompleteResult implements _PlacesAutoCompleteResult {
       {this.placeId, this.mainText, this.description, this.secondaryText});
 
   factory _$_PlacesAutoCompleteResult.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlacesAutoCompleteResultFromJson(json);
+      _$$_PlacesAutoCompleteResultFromJson(json);
 
   @override
   final String? placeId;
@@ -560,93 +490,64 @@ class _$_PlacesAutoCompleteResult implements _PlacesAutoCompleteResult {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PlacesAutoCompleteResult &&
-            (identical(other.placeId, placeId) ||
-                const DeepCollectionEquality()
-                    .equals(other.placeId, placeId)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_PlacesAutoCompleteResult &&
+            (identical(other.placeId, placeId) || other.placeId == placeId) &&
             (identical(other.mainText, mainText) ||
-                const DeepCollectionEquality()
-                    .equals(other.mainText, mainText)) &&
+                other.mainText == mainText) &&
             (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
+                other.description == description) &&
             (identical(other.secondaryText, secondaryText) ||
-                const DeepCollectionEquality()
-                    .equals(other.secondaryText, secondaryText)));
+                other.secondaryText == secondaryText));
   }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(placeId) ^
-      const DeepCollectionEquality().hash(mainText) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(secondaryText);
 
   @JsonKey(ignore: true)
   @override
-  _$PlacesAutoCompleteResultCopyWith<_PlacesAutoCompleteResult> get copyWith =>
-      __$PlacesAutoCompleteResultCopyWithImpl<_PlacesAutoCompleteResult>(
-          this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, placeId, mainText, description, secondaryText);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PlacesAutoCompleteResultCopyWith<_$_PlacesAutoCompleteResult>
+      get copyWith => __$$_PlacesAutoCompleteResultCopyWithImpl<
+          _$_PlacesAutoCompleteResult>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlacesAutoCompleteResultToJson(this);
+    return _$$_PlacesAutoCompleteResultToJson(
+      this,
+    );
   }
 }
 
 abstract class _PlacesAutoCompleteResult implements PlacesAutoCompleteResult {
   factory _PlacesAutoCompleteResult(
-      {String? placeId,
-      String? mainText,
-      String? description,
-      String? secondaryText}) = _$_PlacesAutoCompleteResult;
+      {final String? placeId,
+      final String? mainText,
+      final String? description,
+      final String? secondaryText}) = _$_PlacesAutoCompleteResult;
 
   factory _PlacesAutoCompleteResult.fromJson(Map<String, dynamic> json) =
       _$_PlacesAutoCompleteResult.fromJson;
 
   @override
-  String? get placeId => throw _privateConstructorUsedError;
+  String? get placeId;
   @override
-  String? get mainText => throw _privateConstructorUsedError;
+  String? get mainText;
   @override
-  String? get description => throw _privateConstructorUsedError;
+  String? get description;
   @override
-  String? get secondaryText => throw _privateConstructorUsedError;
+  String? get secondaryText;
   @override
   @JsonKey(ignore: true)
-  _$PlacesAutoCompleteResultCopyWith<_PlacesAutoCompleteResult> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_PlacesAutoCompleteResultCopyWith<_$_PlacesAutoCompleteResult>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 PlacesLocation _$PlacesLocationFromJson(Map<String, dynamic> json) {
   return _PlacesLocation.fromJson(json);
 }
-
-/// @nodoc
-class _$PlacesLocationTearOff {
-  const _$PlacesLocationTearOff();
-
-  _PlacesLocation call(
-      {required String id,
-      double? longitude,
-      double? latitude,
-      String? placeName}) {
-    return _PlacesLocation(
-      id: id,
-      longitude: longitude,
-      latitude: latitude,
-      placeName: placeName,
-    );
-  }
-
-  PlacesLocation fromJson(Map<String, Object> json) {
-    return PlacesLocation.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PlacesLocation = _$PlacesLocationTearOff();
 
 /// @nodoc
 mixin _$PlacesLocation {
@@ -665,91 +566,93 @@ mixin _$PlacesLocation {
 abstract class $PlacesLocationCopyWith<$Res> {
   factory $PlacesLocationCopyWith(
           PlacesLocation value, $Res Function(PlacesLocation) then) =
-      _$PlacesLocationCopyWithImpl<$Res>;
+      _$PlacesLocationCopyWithImpl<$Res, PlacesLocation>;
+  @useResult
   $Res call(
       {String id, double? longitude, double? latitude, String? placeName});
 }
 
 /// @nodoc
-class _$PlacesLocationCopyWithImpl<$Res>
+class _$PlacesLocationCopyWithImpl<$Res, $Val extends PlacesLocation>
     implements $PlacesLocationCopyWith<$Res> {
   _$PlacesLocationCopyWithImpl(this._value, this._then);
 
-  final PlacesLocation _value;
   // ignore: unused_field
-  final $Res Function(PlacesLocation) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? longitude = freezed,
     Object? latitude = freezed,
     Object? placeName = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      longitude: longitude == freezed
+      longitude: freezed == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
-      latitude: latitude == freezed
+      latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
               as double?,
-      placeName: placeName == freezed
+      placeName: freezed == placeName
           ? _value.placeName
           : placeName // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$PlacesLocationCopyWith<$Res>
+abstract class _$$_PlacesLocationCopyWith<$Res>
     implements $PlacesLocationCopyWith<$Res> {
-  factory _$PlacesLocationCopyWith(
-          _PlacesLocation value, $Res Function(_PlacesLocation) then) =
-      __$PlacesLocationCopyWithImpl<$Res>;
+  factory _$$_PlacesLocationCopyWith(
+          _$_PlacesLocation value, $Res Function(_$_PlacesLocation) then) =
+      __$$_PlacesLocationCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id, double? longitude, double? latitude, String? placeName});
 }
 
 /// @nodoc
-class __$PlacesLocationCopyWithImpl<$Res>
-    extends _$PlacesLocationCopyWithImpl<$Res>
-    implements _$PlacesLocationCopyWith<$Res> {
-  __$PlacesLocationCopyWithImpl(
-      _PlacesLocation _value, $Res Function(_PlacesLocation) _then)
-      : super(_value, (v) => _then(v as _PlacesLocation));
+class __$$_PlacesLocationCopyWithImpl<$Res>
+    extends _$PlacesLocationCopyWithImpl<$Res, _$_PlacesLocation>
+    implements _$$_PlacesLocationCopyWith<$Res> {
+  __$$_PlacesLocationCopyWithImpl(
+      _$_PlacesLocation _value, $Res Function(_$_PlacesLocation) _then)
+      : super(_value, _then);
 
-  @override
-  _PlacesLocation get _value => super._value as _PlacesLocation;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? longitude = freezed,
     Object? latitude = freezed,
     Object? placeName = freezed,
   }) {
-    return _then(_PlacesLocation(
-      id: id == freezed
+    return _then(_$_PlacesLocation(
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      longitude: longitude == freezed
+      longitude: freezed == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double?,
-      latitude: latitude == freezed
+      latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
               as double?,
-      placeName: placeName == freezed
+      placeName: freezed == placeName
           ? _value.placeName
           : placeName // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -764,7 +667,7 @@ class _$_PlacesLocation implements _PlacesLocation {
       {required this.id, this.longitude, this.latitude, this.placeName});
 
   factory _$_PlacesLocation.fromJson(Map<String, dynamic> json) =>
-      _$_$_PlacesLocationFromJson(json);
+      _$$_PlacesLocationFromJson(json);
 
   @override
   final String id;
@@ -783,59 +686,56 @@ class _$_PlacesLocation implements _PlacesLocation {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PlacesLocation &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
+        (other.runtimeType == runtimeType &&
+            other is _$_PlacesLocation &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.longitude, longitude) ||
-                const DeepCollectionEquality()
-                    .equals(other.longitude, longitude)) &&
+                other.longitude == longitude) &&
             (identical(other.latitude, latitude) ||
-                const DeepCollectionEquality()
-                    .equals(other.latitude, latitude)) &&
+                other.latitude == latitude) &&
             (identical(other.placeName, placeName) ||
-                const DeepCollectionEquality()
-                    .equals(other.placeName, placeName)));
+                other.placeName == placeName));
   }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(longitude) ^
-      const DeepCollectionEquality().hash(latitude) ^
-      const DeepCollectionEquality().hash(placeName);
 
   @JsonKey(ignore: true)
   @override
-  _$PlacesLocationCopyWith<_PlacesLocation> get copyWith =>
-      __$PlacesLocationCopyWithImpl<_PlacesLocation>(this, _$identity);
+  int get hashCode =>
+      Object.hash(runtimeType, id, longitude, latitude, placeName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PlacesLocationCopyWith<_$_PlacesLocation> get copyWith =>
+      __$$_PlacesLocationCopyWithImpl<_$_PlacesLocation>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_PlacesLocationToJson(this);
+    return _$$_PlacesLocationToJson(
+      this,
+    );
   }
 }
 
 abstract class _PlacesLocation implements PlacesLocation {
   factory _PlacesLocation(
-      {required String id,
-      double? longitude,
-      double? latitude,
-      String? placeName}) = _$_PlacesLocation;
+      {required final String id,
+      final double? longitude,
+      final double? latitude,
+      final String? placeName}) = _$_PlacesLocation;
 
   factory _PlacesLocation.fromJson(Map<String, dynamic> json) =
       _$_PlacesLocation.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  double? get longitude => throw _privateConstructorUsedError;
+  double? get longitude;
   @override
-  double? get latitude => throw _privateConstructorUsedError;
+  double? get latitude;
   @override
-  String? get placeName => throw _privateConstructorUsedError;
+  String? get placeName;
   @override
   @JsonKey(ignore: true)
-  _$PlacesLocationCopyWith<_PlacesLocation> get copyWith =>
+  _$$_PlacesLocationCopyWith<_$_PlacesLocation> get copyWith =>
       throw _privateConstructorUsedError;
 }
