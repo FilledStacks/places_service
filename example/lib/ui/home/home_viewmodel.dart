@@ -16,7 +16,7 @@ class HomeViewModel extends FormViewModel {
 
   void initialise() {
     _placesService.initialize(
-      apiKey: 'PUT_YOUR_KEY_HERE',
+      apiKey: 'YOUR_API_KEY_HERE',
     );
   }
 
@@ -28,11 +28,11 @@ class HomeViewModel extends FormViewModel {
 
   Future<void> _getAutoCompleteResults() async {
     if (addressValue != null) {
-      final placesResults =
-          await runBusyFuture(_placesService.getAutoComplete(addressValue!));
-      print(placesResults);
-
-      if (placesResults != null) {
+      if (addressValue == '') {
+        _autoCompleteResults = [];
+      } else {
+        List<PlacesAutoCompleteResult> placesResults =
+            await runBusyFuture(_placesService.getAutoComplete(addressValue!));
         _autoCompleteResults = placesResults;
       }
 

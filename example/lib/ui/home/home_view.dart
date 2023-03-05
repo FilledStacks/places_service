@@ -16,9 +16,9 @@ class HomeView extends StatelessWidget with $HomeView {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
-      onModelReady: (model) async {
+      onViewModelReady: (model) async {
         model.initialise();
-        listenToFormUpdated(model);
+        syncFormWithViewModel(model);
       },
       builder: (context, model, child) => Scaffold(
         body: ListView(children: [

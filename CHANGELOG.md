@@ -1,4 +1,10 @@
+## 0.1.3
+
+- updated all the packages to their latest versions.
+- switched google_maps_webservice package with google_maps_webservice_ex.
+
 ## 0.1.2
+
 - Bumps freezed: ^2.0.3+1
 - Bumps freezed_annotation: ^2.3.0
 - Bumps geolocator: ^8.2.1

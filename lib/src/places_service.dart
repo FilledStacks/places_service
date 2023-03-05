@@ -1,7 +1,7 @@
 library places_service;
 
 import 'package:geolocator/geolocator.dart';
-import 'package:google_maps_webservice/places.dart';
+import 'package:google_maps_webservice_ex/places.dart';
 import 'package:tuple/tuple.dart';
 import 'package:uuid/uuid.dart';
 
@@ -73,7 +73,7 @@ class PlacesService {
         // Indicate token reset on next auto complete request
         _resetSessionTokenForNextAutoComplete = true;
 
-        var details = detailsResponse.result;
+        PlaceDetails? details = detailsResponse.result;
         var streetNumber = _getShortNameFromComponent(details, 'street_number');
         var streetShort = _getShortNameFromComponent(details, 'route');
         var city = _getShortNameFromComponent(details, 'locality');
@@ -89,8 +89,8 @@ class PlacesService {
           zip: _getShortNameFromComponent(details, 'postal_code'),
           city: city,
           searchString: '$streetNumber $streetShort, $city, $state',
-          lat: detailsResponse.result.geometry!.location.lat,
-          lng: detailsResponse.result.geometry!.location.lng,
+          lat: detailsResponse.result!.geometry!.location.lat,
+          lng: detailsResponse.result!.geometry!.location.lng,
         );
       },
       warningMessageForNotOkayResult: 'Could not get places from Google Maps',
@@ -164,9 +164,9 @@ class PlacesService {
     }
   }
 
-  String _getLongNameFromComponent(PlaceDetails details, String type) {
+  String _getLongNameFromComponent(PlaceDetails? details, String type) {
     try {
-      return details.addressComponents
+      return details!.addressComponents
           .firstWhere((component) => component.types.contains(type))
           .longName;
     } catch (_) {
@@ -174,9 +174,9 @@ class PlacesService {
     }
   }
 
-  String _getShortNameFromComponent(PlaceDetails details, String type) {
+  String _getShortNameFromComponent(PlaceDetails? details, String type) {
     try {
-      return details.addressComponents
+      return details!.addressComponents
           .firstWhere((component) => component.types.contains(type))
           .shortName;
     } catch (_) {
