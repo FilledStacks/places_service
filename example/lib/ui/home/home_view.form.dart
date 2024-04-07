@@ -9,6 +9,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+const bool _autoTextFieldValidation = true;
+
 const String AddressValueKey = 'address';
 
 final Map<String, TextEditingController> _HomeViewTextEditingControllers = {};
@@ -19,16 +21,20 @@ final Map<String, String? Function(String?)?> _HomeViewTextValidations = {
   AddressValueKey: null,
 };
 
-mixin $HomeView on StatelessWidget {
+mixin $HomeView {
   TextEditingController get addressController =>
       _getFormTextEditingController(AddressValueKey);
+
   FocusNode get addressFocusNode => _getFormFocusNode(AddressValueKey);
 
-  TextEditingController _getFormTextEditingController(String key,
-      {String? initialValue}) {
+  TextEditingController _getFormTextEditingController(
+    String key, {
+    String? initialValue,
+  }) {
     if (_HomeViewTextEditingControllers.containsKey(key)) {
       return _HomeViewTextEditingControllers[key]!;
     }
+
     _HomeViewTextEditingControllers[key] =
         TextEditingController(text: initialValue);
     return _HomeViewTextEditingControllers[key]!;
@@ -44,50 +50,41 @@ mixin $HomeView on StatelessWidget {
 
   /// Registers a listener on every generated controller that calls [model.setData()]
   /// with the latest textController values
-  void syncFormWithViewModel(FormViewModel model) {
+  void syncFormWithViewModel(FormStateHelper model) {
     addressController.addListener(() => _updateFormData(model));
+
+    _updateFormData(model, forceValidate: _autoTextFieldValidation);
   }
 
   /// Registers a listener on every generated controller that calls [model.setData()]
   /// with the latest textController values
-  @Deprecated('Use syncFormWithViewModel instead.'
-      'This feature was deprecated after 3.1.0.')
+  @Deprecated(
+    'Use syncFormWithViewModel instead.'
+    'This feature was deprecated after 3.1.0.',
+  )
   void listenToFormUpdated(FormViewModel model) {
     addressController.addListener(() => _updateFormData(model));
-  }
 
-  final bool _autoTextFieldValidation = true;
-  bool validateFormFields(FormViewModel model) {
-    _updateFormData(model, forceValidate: true);
-    return model.isFormValid;
+    _updateFormData(model, forceValidate: _autoTextFieldValidation);
   }
 
   /// Updates the formData on the FormViewModel
-  void _updateFormData(FormViewModel model, {bool forceValidate = false}) {
+  void _updateFormData(FormStateHelper model, {bool forceValidate = false}) {
     model.setData(
       model.formValueMap
         ..addAll({
           AddressValueKey: addressController.text,
         }),
     );
+
     if (_autoTextFieldValidation || forceValidate) {
-      _updateValidationData(model);
+      updateValidationData(model);
     }
   }
 
-  /// Updates the fieldsValidationMessages on the FormViewModel
-  void _updateValidationData(FormViewModel model) =>
-      model.setValidationMessages({
-        AddressValueKey: _getValidationMessage(AddressValueKey),
-      });
-
-  /// Returns the validation message for the given key
-  String? _getValidationMessage(String key) {
-    final validatorForKey = _HomeViewTextValidations[key];
-    if (validatorForKey == null) return null;
-    String? validationMessageForKey =
-        validatorForKey(_HomeViewTextEditingControllers[key]!.text);
-    return validationMessageForKey;
+  bool validateFormFields(FormViewModel model) {
+    _updateFormData(model, forceValidate: true);
+    return model.isFormValid;
   }
 
   /// Calls dispose on all the generated controllers and focus nodes
@@ -106,10 +103,29 @@ mixin $HomeView on StatelessWidget {
   }
 }
 
-extension ValueProperties on FormViewModel {
-  bool get isFormValid =>
-      this.fieldsValidationMessages.values.every((element) => element == null);
+extension ValueProperties on FormStateHelper {
+  bool get hasAnyValidationMessage => this
+      .fieldsValidationMessages
+      .values
+      .any((validation) => validation != null);
+
+  bool get isFormValid {
+    if (!_autoTextFieldValidation) this.validateForm();
+
+    return !hasAnyValidationMessage;
+  }
+
   String? get addressValue => this.formValueMap[AddressValueKey] as String?;
+
+  set addressValue(String? value) {
+    this.setData(
+      this.formValueMap..addAll({AddressValueKey: value}),
+    );
+
+    if (_HomeViewTextEditingControllers.containsKey(AddressValueKey)) {
+      _HomeViewTextEditingControllers[AddressValueKey]?.text = value ?? '';
+    }
+  }
 
   bool get hasAddress =>
       this.formValueMap.containsKey(AddressValueKey) &&
@@ -122,7 +138,37 @@ extension ValueProperties on FormViewModel {
       this.fieldsValidationMessages[AddressValueKey];
 }
 
-extension Methods on FormViewModel {
+extension Methods on FormStateHelper {
   setAddressValidationMessage(String? validationMessage) =>
       this.fieldsValidationMessages[AddressValueKey] = validationMessage;
+
+  /// Clears text input fields on the Form
+  void clearForm() {
+    addressValue = '';
+  }
+
+  /// Validates text input fields on the Form
+  void validateForm() {
+    this.setValidationMessages({
+      AddressValueKey: getValidationMessage(AddressValueKey),
+    });
+  }
 }
+
+/// Returns the validation message for the given key
+String? getValidationMessage(String key) {
+  final validatorForKey = _HomeViewTextValidations[key];
+  if (validatorForKey == null) return null;
+
+  String? validationMessageForKey = validatorForKey(
+    _HomeViewTextEditingControllers[key]!.text,
+  );
+
+  return validationMessageForKey;
+}
+
+/// Updates the fieldsValidationMessages on the FormViewModel
+void updateValidationData(FormStateHelper model) =>
+    model.setValidationMessages({
+      AddressValueKey: getValidationMessage(AddressValueKey),
+    });

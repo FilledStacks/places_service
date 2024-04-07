@@ -1,3 +1,9 @@
+## 0.1.4
+
+- updated all the packages to their latest versions.
+- removed tuple package ( using dart Records instead ).
+- updated the example
+
 ## 0.1.3
 
 - updated all the packages to their latest versions.

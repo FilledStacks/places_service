@@ -1,10 +1,12 @@
 import 'package:places_example/app/app.locator.dart';
+import 'package:places_example/app/app.logger.dart';
 import 'package:places_service/places_service.dart';
 import 'package:stacked/stacked.dart';
 
 import 'home_view.form.dart';
 
 class HomeViewModel extends FormViewModel {
+  final _logger = getLogger('HomeViewModel');
   final _placesService = locator<PlacesService>();
 
   List<PlacesAutoCompleteResult> _autoCompleteResults = [];
@@ -28,15 +30,21 @@ class HomeViewModel extends FormViewModel {
 
   Future<void> _getAutoCompleteResults() async {
     if (addressValue != null) {
-      if (addressValue == '') {
+      if (addressValue!.isEmpty) {
         _autoCompleteResults = [];
       } else {
-        List<PlacesAutoCompleteResult> placesResults =
-            await runBusyFuture(_placesService.getAutoComplete(addressValue!));
-        _autoCompleteResults = placesResults;
+        try {
+          List<PlacesAutoCompleteResult> placesResults = await runBusyFuture(
+            _placesService.getAutoComplete(addressValue!),
+            throwException: true,
+          );
+          _autoCompleteResults = placesResults;
+        } catch (e) {
+          _logger.e('$e');
+        }
       }
 
-      notifyListeners();
+      rebuildUi();
     }
   }
 }

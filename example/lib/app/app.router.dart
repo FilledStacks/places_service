@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// StackedRouterGenerator
+// StackedNavigatorGenerator
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
@@ -40,6 +40,7 @@ class StackedRouter extends _i1.RouterBase {
 
   @override
   List<_i1.RouteDef> get routes => _routes;
+
   @override
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
@@ -48,6 +49,22 @@ class HomeViewArguments {
   const HomeViewArguments({this.key});
 
   final _i4.Key? key;
+
+  @override
+  String toString() {
+    return '{"key": "$key"}';
+  }
+
+  @override
+  bool operator ==(covariant HomeViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode;
+  }
 }
 
 extension NavigatorStateExtension on _i5.NavigationService {
