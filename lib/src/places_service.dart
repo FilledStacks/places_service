@@ -1,7 +1,7 @@
 library places_service;
 
 import 'package:geolocator/geolocator.dart';
-import 'package:google_maps_webservice_ex/places.dart';
+import 'package:google_maps_apis/places.dart';
 import 'package:uuid/uuid.dart';
 
 import 'models/application_models.dart';
@@ -45,9 +45,9 @@ class PlacesService {
         PlacesAutocompleteResponse>(
       placesRequest: _places!.autocomplete(input, sessionToken: _sessionToken),
       serialiseResponse: (autoCompleteResults) {
-        final results = autoCompleteResults.predictions.where((prediction) {
+        final results = autoCompleteResults.predictions!.where((prediction) {
           final address =
-              prediction.structuredFormatting?.mainText.split(' ').first;
+              prediction.structuredFormatting?.mainText!.split(' ').first;
           return address != null;
         }).map((prediction) {
           return PlacesAutoCompleteResult(
@@ -98,9 +98,9 @@ class PlacesService {
   }
 
   Future getPlacesAtCurrentLocation() async {
-    var currentPosition;
+    late Position? currentPosition;
     try {
-      for (var trial in [
+      for ((LocationAccuracy, int) trial in [
         (LocationAccuracy.lowest, 2),
         (LocationAccuracy.medium, 2),
         (LocationAccuracy.high, 3)
@@ -134,8 +134,8 @@ class PlacesService {
         50,
       ),
       serialiseResponse: (searchResponse) {
-        var results = searchResponse.results.map((result) => PlacesLocation(
-              id: result.placeId,
+        final results = searchResponse.results!.map((result) => PlacesLocation(
+              id: result.placeId!,
               latitude: result.geometry!.location.lat,
               longitude: result.geometry!.location.lng,
               placeName: result.vicinity,
@@ -152,23 +152,26 @@ class PlacesService {
     required String warningMessageForNotOkayResult,
   }) async {
     try {
-      var result = await placesRequest;
-      if (result.isOkay) {
+      final result = await placesRequest;
+      final _responseStatus = result.status as ResponseStatus;
+      print('${_responseStatus}}');
+      if ([ResponseStatus.ok, ResponseStatus.zeroResults]
+          .contains(_responseStatus)) {
         return serialiseResponse(result);
       } else {
         throw PlacesApiException(message: warningMessageForNotOkayResult);
       }
     } catch (exception) {
-      var errorMessage = 'A problem occurred making the places request.';
+      final errorMessage = 'A problem occurred making the places request. ';
       throw PlacesApiException(message: errorMessage, exception: exception);
     }
   }
 
   String _getLongNameFromComponent(PlaceDetails? details, String type) {
     try {
-      return details!.addressComponents
-          .firstWhere((component) => component.types.contains(type))
-          .longName;
+      return details!.addressComponents!
+          .firstWhere((component) => component.types!.contains(type))
+          .longName!;
     } catch (_) {
       return '';
     }
@@ -176,9 +179,9 @@ class PlacesService {
 
   String _getShortNameFromComponent(PlaceDetails? details, String type) {
     try {
-      return details!.addressComponents
-          .firstWhere((component) => component.types.contains(type))
-          .shortName;
+      return details!.addressComponents!
+          .firstWhere((component) => component.types!.contains(type))
+          .shortName!;
     } catch (_) {
       return '';
     }

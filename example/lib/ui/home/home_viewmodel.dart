@@ -18,7 +18,8 @@ class HomeViewModel extends FormViewModel {
 
   void initialise() {
     _placesService.initialize(
-      apiKey: 'YOUR_API_KEY_HERE',
+      apiKey: 'AIzaSyCD-HC1EDsRtEGE7FAp9CW-LuVOIRwwuBk',
+      // apiKey: 'YOUR_API_KEY_HERE',
     );
   }
 
@@ -39,8 +40,8 @@ class HomeViewModel extends FormViewModel {
             throwException: true,
           );
           _autoCompleteResults = placesResults;
-        } catch (e) {
-          _logger.e('$e');
+        } on PlacesApiException catch (e) {
+          _logger.e(e);
         }
       }
 
