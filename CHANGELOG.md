@@ -1,3 +1,7 @@
+## 0.1.5
+
+- removed google_maps_webservice_ex package ( using google_maps_apis instead ).
+
 ## 0.1.4
 
 - updated all the packages to their latest versions.
