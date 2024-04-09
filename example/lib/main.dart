@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:places_example/app/app.locator.dart';
 import 'package:places_example/ui/home/home_view.dart';
 
-void main() {
-  setupLocator();
+void main() async {
+  await setupLocator();
   runApp(MyApp());
 }
 

@@ -2,7 +2,6 @@ library places_service;
 
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_webservice_ex/places.dart';
-import 'package:tuple/tuple.dart';
 import 'package:uuid/uuid.dart';
 
 import 'models/application_models.dart';
@@ -74,10 +73,11 @@ class PlacesService {
         _resetSessionTokenForNextAutoComplete = true;
 
         PlaceDetails? details = detailsResponse.result;
-        var streetNumber = _getShortNameFromComponent(details, 'street_number');
-        var streetShort = _getShortNameFromComponent(details, 'route');
-        var city = _getShortNameFromComponent(details, 'locality');
-        var state =
+        final streetNumber =
+            _getShortNameFromComponent(details, 'street_number');
+        final streetShort = _getShortNameFromComponent(details, 'route');
+        final city = _getShortNameFromComponent(details, 'locality');
+        final state =
             _getShortNameFromComponent(details, 'administrative_area_level_1');
 
         return PlacesDetails(
@@ -101,13 +101,13 @@ class PlacesService {
     var currentPosition;
     try {
       for (var trial in [
-        Tuple2(LocationAccuracy.lowest, 2),
-        Tuple2(LocationAccuracy.medium, 2),
-        Tuple2(LocationAccuracy.high, 3)
+        (LocationAccuracy.lowest, 2),
+        (LocationAccuracy.medium, 2),
+        (LocationAccuracy.high, 3)
       ]) {
         currentPosition = await Geolocator.getCurrentPosition(
-          desiredAccuracy: trial.item1,
-          timeLimit: Duration(seconds: trial.item2),
+          desiredAccuracy: trial.$1,
+          timeLimit: Duration(seconds: trial.$2),
         );
       }
     } catch (e) {
