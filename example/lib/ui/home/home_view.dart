@@ -10,17 +10,11 @@ import 'home_viewmodel.dart';
     name: 'address',
   )
 ])
-class HomeView extends StatelessWidget with $HomeView {
+class HomeView extends StackedView<HomeViewModel> with $HomeView {
   HomeView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return ViewModelBuilder<HomeViewModel>.reactive(
-      onViewModelReady: (model) async {
-        model.initialise();
-        syncFormWithViewModel(model);
-      },
-      builder: (context, model, child) => Scaffold(
+  Widget builder(context, model, child) => Scaffold(
         body: ListView(
           children: [
             TextFormField(
@@ -37,8 +31,15 @@ class HomeView extends StatelessWidget with $HomeView {
                   ))
           ],
         ),
-      ),
-      viewModelBuilder: () => HomeViewModel(),
-    );
+      );
+
+  @override
+  void onViewModelReady(HomeViewModel viewModel) async {
+    viewModel.initialise();
+    syncFormWithViewModel(viewModel);
+    super.onViewModelReady(viewModel);
   }
+
+  @override
+  HomeViewModel viewModelBuilder(BuildContext context) => HomeViewModel();
 }

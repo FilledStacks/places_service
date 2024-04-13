@@ -43,7 +43,6 @@ class HomeViewModel extends FormViewModel {
           _logger.e(e);
         }
       }
-
       rebuildUi();
     }
   }
