@@ -72,11 +72,17 @@ class PlacesService {
         // Indicate token reset on next auto complete request
         _resetSessionTokenForNextAutoComplete = true;
 
+        final locality =
+            _getShortNameFromComponent(detailsResponse.result, 'locality');
+        final subLocality =
+            _getShortNameFromComponent(detailsResponse.result, 'sublocality');
+
         PlaceDetails? details = detailsResponse.result;
         final streetNumber =
             _getShortNameFromComponent(details, 'street_number');
         final streetShort = _getShortNameFromComponent(details, 'route');
-        final city = _getShortNameFromComponent(details, 'locality');
+        // Sometimes, the Google Places API returns the city in 'sublocality' and leaves 'locality' empty.
+        final city = locality.isNotEmpty ? locality : subLocality;
         final state =
             _getShortNameFromComponent(details, 'administrative_area_level_1');
 
