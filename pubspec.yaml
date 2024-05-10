@@ -1,6 +1,6 @@
 name: places_service
 description: A service that makes it easy to get information from the Places Api
-version: 0.1.4
+version: 0.1.5
 homepage: https://filledstacks.com
 
 environment:
