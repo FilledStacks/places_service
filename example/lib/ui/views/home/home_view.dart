@@ -11,24 +11,25 @@ import 'home_viewmodel.dart';
   )
 ])
 class HomeView extends StackedView<HomeViewModel> with $HomeView {
-  HomeView({Key? key}) : super(key: key);
+  HomeView({super.key});
 
   @override
-  Widget builder(context, model, child) => Scaffold(
+  Widget builder(context, viewModel, child) => Scaffold(
         body: ListView(
           children: [
             TextFormField(
               decoration: InputDecoration(hintText: 'Enter your address'),
               controller: addressController,
             ),
-            if (model.isBusy) Align(child: CircularProgressIndicator()),
-            if (!model.isBusy && !model.hasAutoCompleteResults)
+            if (viewModel.isBusy) Align(child: CircularProgressIndicator()),
+            if (!viewModel.isBusy && !viewModel.hasAutoCompleteResults)
               Text('We have no suggestions for you, change the address above.'),
-            if (!model.isBusy && model.hasAutoCompleteResults)
-              ...model.autoCompleteResults.map((autoCompleteResult) => ListTile(
-                    title: Text(autoCompleteResult.mainText ?? ''),
-                    subtitle: Text(autoCompleteResult.secondaryText ?? ''),
-                  ))
+            if (!viewModel.isBusy && viewModel.hasAutoCompleteResults)
+              ...viewModel.autoCompleteResults
+                  .map((autoCompleteResult) => ListTile(
+                        title: Text(autoCompleteResult.mainText ?? ''),
+                        subtitle: Text(autoCompleteResult.secondaryText ?? ''),
+                      ))
           ],
         ),
       );
