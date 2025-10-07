@@ -12,7 +12,7 @@ part of 'application_models.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PlacesDetails _$PlacesDetailsFromJson(Map<String, dynamic> json) {
   return _PlacesDetails.fromJson(json);
@@ -31,8 +31,12 @@ mixin _$PlacesDetails {
   double? get lat => throw _privateConstructorUsedError;
   double? get lng => throw _privateConstructorUsedError;
 
+  /// Serializes this PlacesDetails to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PlacesDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PlacesDetailsCopyWith<PlacesDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -66,6 +70,8 @@ class _$PlacesDetailsCopyWithImpl<$Res, $Val extends PlacesDetails>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PlacesDetails
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -126,11 +132,11 @@ class _$PlacesDetailsCopyWithImpl<$Res, $Val extends PlacesDetails>
 }
 
 /// @nodoc
-abstract class _$$_PlacesDetailsCopyWith<$Res>
+abstract class _$$PlacesDetailsImplCopyWith<$Res>
     implements $PlacesDetailsCopyWith<$Res> {
-  factory _$$_PlacesDetailsCopyWith(
-          _$_PlacesDetails value, $Res Function(_$_PlacesDetails) then) =
-      __$$_PlacesDetailsCopyWithImpl<$Res>;
+  factory _$$PlacesDetailsImplCopyWith(
+          _$PlacesDetailsImpl value, $Res Function(_$PlacesDetailsImpl) then) =
+      __$$PlacesDetailsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -147,13 +153,15 @@ abstract class _$$_PlacesDetailsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PlacesDetailsCopyWithImpl<$Res>
-    extends _$PlacesDetailsCopyWithImpl<$Res, _$_PlacesDetails>
-    implements _$$_PlacesDetailsCopyWith<$Res> {
-  __$$_PlacesDetailsCopyWithImpl(
-      _$_PlacesDetails _value, $Res Function(_$_PlacesDetails) _then)
+class __$$PlacesDetailsImplCopyWithImpl<$Res>
+    extends _$PlacesDetailsCopyWithImpl<$Res, _$PlacesDetailsImpl>
+    implements _$$PlacesDetailsImplCopyWith<$Res> {
+  __$$PlacesDetailsImplCopyWithImpl(
+      _$PlacesDetailsImpl _value, $Res Function(_$PlacesDetailsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PlacesDetails
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -168,7 +176,7 @@ class __$$_PlacesDetailsCopyWithImpl<$Res>
     Object? lat = freezed,
     Object? lng = freezed,
   }) {
-    return _then(_$_PlacesDetails(
+    return _then(_$PlacesDetailsImpl(
       placeId: freezed == placeId
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
@@ -215,8 +223,8 @@ class __$$_PlacesDetailsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PlacesDetails implements _PlacesDetails {
-  _$_PlacesDetails(
+class _$PlacesDetailsImpl implements _PlacesDetails {
+  _$PlacesDetailsImpl(
       {this.placeId,
       this.streetNumber,
       this.streetShort,
@@ -228,8 +236,8 @@ class _$_PlacesDetails implements _PlacesDetails {
       this.lat,
       this.lng});
 
-  factory _$_PlacesDetails.fromJson(Map<String, dynamic> json) =>
-      _$$_PlacesDetailsFromJson(json);
+  factory _$PlacesDetailsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PlacesDetailsImplFromJson(json);
 
   @override
   final String? placeId;
@@ -258,10 +266,10 @@ class _$_PlacesDetails implements _PlacesDetails {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PlacesDetails &&
+            other is _$PlacesDetailsImpl &&
             (identical(other.placeId, placeId) || other.placeId == placeId) &&
             (identical(other.streetNumber, streetNumber) ||
                 other.streetNumber == streetNumber) &&
@@ -278,20 +286,22 @@ class _$_PlacesDetails implements _PlacesDetails {
             (identical(other.lng, lng) || other.lng == lng));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, placeId, streetNumber,
       streetShort, streetLong, state, zip, city, searchString, lat, lng);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PlacesDetails
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PlacesDetailsCopyWith<_$_PlacesDetails> get copyWith =>
-      __$$_PlacesDetailsCopyWithImpl<_$_PlacesDetails>(this, _$identity);
+  _$$PlacesDetailsImplCopyWith<_$PlacesDetailsImpl> get copyWith =>
+      __$$PlacesDetailsImplCopyWithImpl<_$PlacesDetailsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PlacesDetailsToJson(
+    return _$$PlacesDetailsImplToJson(
       this,
     );
   }
@@ -308,10 +318,10 @@ abstract class _PlacesDetails implements PlacesDetails {
       final String? city,
       final String? searchString,
       final double? lat,
-      final double? lng}) = _$_PlacesDetails;
+      final double? lng}) = _$PlacesDetailsImpl;
 
   factory _PlacesDetails.fromJson(Map<String, dynamic> json) =
-      _$_PlacesDetails.fromJson;
+      _$PlacesDetailsImpl.fromJson;
 
   @override
   String? get placeId;
@@ -333,9 +343,12 @@ abstract class _PlacesDetails implements PlacesDetails {
   double? get lat;
   @override
   double? get lng;
+
+  /// Create a copy of PlacesDetails
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_PlacesDetailsCopyWith<_$_PlacesDetails> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PlacesDetailsImplCopyWith<_$PlacesDetailsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -351,8 +364,12 @@ mixin _$PlacesAutoCompleteResult {
   String? get description => throw _privateConstructorUsedError;
   String? get secondaryText => throw _privateConstructorUsedError;
 
+  /// Serializes this PlacesAutoCompleteResult to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PlacesAutoCompleteResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PlacesAutoCompleteResultCopyWith<PlacesAutoCompleteResult> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -381,6 +398,8 @@ class _$PlacesAutoCompleteResultCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PlacesAutoCompleteResult
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -411,12 +430,12 @@ class _$PlacesAutoCompleteResultCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PlacesAutoCompleteResultCopyWith<$Res>
+abstract class _$$PlacesAutoCompleteResultImplCopyWith<$Res>
     implements $PlacesAutoCompleteResultCopyWith<$Res> {
-  factory _$$_PlacesAutoCompleteResultCopyWith(
-          _$_PlacesAutoCompleteResult value,
-          $Res Function(_$_PlacesAutoCompleteResult) then) =
-      __$$_PlacesAutoCompleteResultCopyWithImpl<$Res>;
+  factory _$$PlacesAutoCompleteResultImplCopyWith(
+          _$PlacesAutoCompleteResultImpl value,
+          $Res Function(_$PlacesAutoCompleteResultImpl) then) =
+      __$$PlacesAutoCompleteResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -427,14 +446,17 @@ abstract class _$$_PlacesAutoCompleteResultCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PlacesAutoCompleteResultCopyWithImpl<$Res>
+class __$$PlacesAutoCompleteResultImplCopyWithImpl<$Res>
     extends _$PlacesAutoCompleteResultCopyWithImpl<$Res,
-        _$_PlacesAutoCompleteResult>
-    implements _$$_PlacesAutoCompleteResultCopyWith<$Res> {
-  __$$_PlacesAutoCompleteResultCopyWithImpl(_$_PlacesAutoCompleteResult _value,
-      $Res Function(_$_PlacesAutoCompleteResult) _then)
+        _$PlacesAutoCompleteResultImpl>
+    implements _$$PlacesAutoCompleteResultImplCopyWith<$Res> {
+  __$$PlacesAutoCompleteResultImplCopyWithImpl(
+      _$PlacesAutoCompleteResultImpl _value,
+      $Res Function(_$PlacesAutoCompleteResultImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PlacesAutoCompleteResult
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -443,7 +465,7 @@ class __$$_PlacesAutoCompleteResultCopyWithImpl<$Res>
     Object? description = freezed,
     Object? secondaryText = freezed,
   }) {
-    return _then(_$_PlacesAutoCompleteResult(
+    return _then(_$PlacesAutoCompleteResultImpl(
       placeId: freezed == placeId
           ? _value.placeId
           : placeId // ignore: cast_nullable_to_non_nullable
@@ -466,12 +488,12 @@ class __$$_PlacesAutoCompleteResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PlacesAutoCompleteResult implements _PlacesAutoCompleteResult {
-  _$_PlacesAutoCompleteResult(
+class _$PlacesAutoCompleteResultImpl implements _PlacesAutoCompleteResult {
+  _$PlacesAutoCompleteResultImpl(
       {this.placeId, this.mainText, this.description, this.secondaryText});
 
-  factory _$_PlacesAutoCompleteResult.fromJson(Map<String, dynamic> json) =>
-      _$$_PlacesAutoCompleteResultFromJson(json);
+  factory _$PlacesAutoCompleteResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PlacesAutoCompleteResultImplFromJson(json);
 
   @override
   final String? placeId;
@@ -488,10 +510,10 @@ class _$_PlacesAutoCompleteResult implements _PlacesAutoCompleteResult {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PlacesAutoCompleteResult &&
+            other is _$PlacesAutoCompleteResultImpl &&
             (identical(other.placeId, placeId) || other.placeId == placeId) &&
             (identical(other.mainText, mainText) ||
                 other.mainText == mainText) &&
@@ -501,21 +523,23 @@ class _$_PlacesAutoCompleteResult implements _PlacesAutoCompleteResult {
                 other.secondaryText == secondaryText));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, placeId, mainText, description, secondaryText);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PlacesAutoCompleteResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PlacesAutoCompleteResultCopyWith<_$_PlacesAutoCompleteResult>
-      get copyWith => __$$_PlacesAutoCompleteResultCopyWithImpl<
-          _$_PlacesAutoCompleteResult>(this, _$identity);
+  _$$PlacesAutoCompleteResultImplCopyWith<_$PlacesAutoCompleteResultImpl>
+      get copyWith => __$$PlacesAutoCompleteResultImplCopyWithImpl<
+          _$PlacesAutoCompleteResultImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PlacesAutoCompleteResultToJson(
+    return _$$PlacesAutoCompleteResultImplToJson(
       this,
     );
   }
@@ -526,10 +550,10 @@ abstract class _PlacesAutoCompleteResult implements PlacesAutoCompleteResult {
       {final String? placeId,
       final String? mainText,
       final String? description,
-      final String? secondaryText}) = _$_PlacesAutoCompleteResult;
+      final String? secondaryText}) = _$PlacesAutoCompleteResultImpl;
 
   factory _PlacesAutoCompleteResult.fromJson(Map<String, dynamic> json) =
-      _$_PlacesAutoCompleteResult.fromJson;
+      _$PlacesAutoCompleteResultImpl.fromJson;
 
   @override
   String? get placeId;
@@ -539,9 +563,12 @@ abstract class _PlacesAutoCompleteResult implements PlacesAutoCompleteResult {
   String? get description;
   @override
   String? get secondaryText;
+
+  /// Create a copy of PlacesAutoCompleteResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_PlacesAutoCompleteResultCopyWith<_$_PlacesAutoCompleteResult>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PlacesAutoCompleteResultImplCopyWith<_$PlacesAutoCompleteResultImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -556,8 +583,12 @@ mixin _$PlacesLocation {
   double? get latitude => throw _privateConstructorUsedError;
   String? get placeName => throw _privateConstructorUsedError;
 
+  /// Serializes this PlacesLocation to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PlacesLocation
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PlacesLocationCopyWith<PlacesLocation> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -582,6 +613,8 @@ class _$PlacesLocationCopyWithImpl<$Res, $Val extends PlacesLocation>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PlacesLocation
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -612,11 +645,11 @@ class _$PlacesLocationCopyWithImpl<$Res, $Val extends PlacesLocation>
 }
 
 /// @nodoc
-abstract class _$$_PlacesLocationCopyWith<$Res>
+abstract class _$$PlacesLocationImplCopyWith<$Res>
     implements $PlacesLocationCopyWith<$Res> {
-  factory _$$_PlacesLocationCopyWith(
-          _$_PlacesLocation value, $Res Function(_$_PlacesLocation) then) =
-      __$$_PlacesLocationCopyWithImpl<$Res>;
+  factory _$$PlacesLocationImplCopyWith(_$PlacesLocationImpl value,
+          $Res Function(_$PlacesLocationImpl) then) =
+      __$$PlacesLocationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -624,13 +657,15 @@ abstract class _$$_PlacesLocationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PlacesLocationCopyWithImpl<$Res>
-    extends _$PlacesLocationCopyWithImpl<$Res, _$_PlacesLocation>
-    implements _$$_PlacesLocationCopyWith<$Res> {
-  __$$_PlacesLocationCopyWithImpl(
-      _$_PlacesLocation _value, $Res Function(_$_PlacesLocation) _then)
+class __$$PlacesLocationImplCopyWithImpl<$Res>
+    extends _$PlacesLocationCopyWithImpl<$Res, _$PlacesLocationImpl>
+    implements _$$PlacesLocationImplCopyWith<$Res> {
+  __$$PlacesLocationImplCopyWithImpl(
+      _$PlacesLocationImpl _value, $Res Function(_$PlacesLocationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PlacesLocation
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -639,7 +674,7 @@ class __$$_PlacesLocationCopyWithImpl<$Res>
     Object? latitude = freezed,
     Object? placeName = freezed,
   }) {
-    return _then(_$_PlacesLocation(
+    return _then(_$PlacesLocationImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -662,12 +697,12 @@ class __$$_PlacesLocationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PlacesLocation implements _PlacesLocation {
-  _$_PlacesLocation(
+class _$PlacesLocationImpl implements _PlacesLocation {
+  _$PlacesLocationImpl(
       {required this.id, this.longitude, this.latitude, this.placeName});
 
-  factory _$_PlacesLocation.fromJson(Map<String, dynamic> json) =>
-      _$$_PlacesLocationFromJson(json);
+  factory _$PlacesLocationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PlacesLocationImplFromJson(json);
 
   @override
   final String id;
@@ -684,10 +719,10 @@ class _$_PlacesLocation implements _PlacesLocation {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PlacesLocation &&
+            other is _$PlacesLocationImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.longitude, longitude) ||
                 other.longitude == longitude) &&
@@ -697,20 +732,23 @@ class _$_PlacesLocation implements _PlacesLocation {
                 other.placeName == placeName));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, id, longitude, latitude, placeName);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PlacesLocation
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PlacesLocationCopyWith<_$_PlacesLocation> get copyWith =>
-      __$$_PlacesLocationCopyWithImpl<_$_PlacesLocation>(this, _$identity);
+  _$$PlacesLocationImplCopyWith<_$PlacesLocationImpl> get copyWith =>
+      __$$PlacesLocationImplCopyWithImpl<_$PlacesLocationImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PlacesLocationToJson(
+    return _$$PlacesLocationImplToJson(
       this,
     );
   }
@@ -721,10 +759,10 @@ abstract class _PlacesLocation implements PlacesLocation {
       {required final String id,
       final double? longitude,
       final double? latitude,
-      final String? placeName}) = _$_PlacesLocation;
+      final String? placeName}) = _$PlacesLocationImpl;
 
   factory _PlacesLocation.fromJson(Map<String, dynamic> json) =
-      _$_PlacesLocation.fromJson;
+      _$PlacesLocationImpl.fromJson;
 
   @override
   String get id;
@@ -734,8 +772,11 @@ abstract class _PlacesLocation implements PlacesLocation {
   double? get latitude;
   @override
   String? get placeName;
+
+  /// Create a copy of PlacesLocation
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_PlacesLocationCopyWith<_$_PlacesLocation> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PlacesLocationImplCopyWith<_$PlacesLocationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

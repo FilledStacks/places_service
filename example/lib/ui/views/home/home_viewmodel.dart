@@ -39,11 +39,10 @@ class HomeViewModel extends FormViewModel {
             throwException: true,
           );
           _autoCompleteResults = placesResults;
-        } catch (e) {
-          _logger.e('$e');
+        } on PlacesApiException catch (e) {
+          _logger.e(e);
         }
       }
-
       rebuildUi();
     }
   }

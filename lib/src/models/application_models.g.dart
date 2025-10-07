@@ -6,8 +6,8 @@ part of 'application_models.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PlacesDetails _$$_PlacesDetailsFromJson(Map<String, dynamic> json) =>
-    _$_PlacesDetails(
+_$PlacesDetailsImpl _$$PlacesDetailsImplFromJson(Map<String, dynamic> json) =>
+    _$PlacesDetailsImpl(
       placeId: json['placeId'] as String?,
       streetNumber: json['streetNumber'] as String?,
       streetShort: json['streetShort'] as String?,
@@ -20,7 +20,7 @@ _$_PlacesDetails _$$_PlacesDetailsFromJson(Map<String, dynamic> json) =>
       lng: (json['lng'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$$_PlacesDetailsToJson(_$_PlacesDetails instance) =>
+Map<String, dynamic> _$$PlacesDetailsImplToJson(_$PlacesDetailsImpl instance) =>
     <String, dynamic>{
       'placeId': instance.placeId,
       'streetNumber': instance.streetNumber,
@@ -34,17 +34,17 @@ Map<String, dynamic> _$$_PlacesDetailsToJson(_$_PlacesDetails instance) =>
       'lng': instance.lng,
     };
 
-_$_PlacesAutoCompleteResult _$$_PlacesAutoCompleteResultFromJson(
+_$PlacesAutoCompleteResultImpl _$$PlacesAutoCompleteResultImplFromJson(
         Map<String, dynamic> json) =>
-    _$_PlacesAutoCompleteResult(
+    _$PlacesAutoCompleteResultImpl(
       placeId: json['placeId'] as String?,
       mainText: json['mainText'] as String?,
       description: json['description'] as String?,
       secondaryText: json['secondaryText'] as String?,
     );
 
-Map<String, dynamic> _$$_PlacesAutoCompleteResultToJson(
-        _$_PlacesAutoCompleteResult instance) =>
+Map<String, dynamic> _$$PlacesAutoCompleteResultImplToJson(
+        _$PlacesAutoCompleteResultImpl instance) =>
     <String, dynamic>{
       'placeId': instance.placeId,
       'mainText': instance.mainText,
@@ -52,15 +52,16 @@ Map<String, dynamic> _$$_PlacesAutoCompleteResultToJson(
       'secondaryText': instance.secondaryText,
     };
 
-_$_PlacesLocation _$$_PlacesLocationFromJson(Map<String, dynamic> json) =>
-    _$_PlacesLocation(
+_$PlacesLocationImpl _$$PlacesLocationImplFromJson(Map<String, dynamic> json) =>
+    _$PlacesLocationImpl(
       id: json['id'] as String,
       longitude: (json['longitude'] as num?)?.toDouble(),
       latitude: (json['latitude'] as num?)?.toDouble(),
       placeName: json['placeName'] as String?,
     );
 
-Map<String, dynamic> _$$_PlacesLocationToJson(_$_PlacesLocation instance) =>
+Map<String, dynamic> _$$PlacesLocationImplToJson(
+        _$PlacesLocationImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'longitude': instance.longitude,
